@@ -12,15 +12,13 @@ public class Main{
 
         EventBus eventBus = new EventBus();
 
-        for(int i = 0; i< 100; i++) {
-            eventBus.subscribe("topic1", (data) -> {
-                System.out.println(data);
-            });
+        eventBus.subscribe("topic1", (data) -> {
+            System.out.println(data);
+        });
 
-            eventBus.subscribe("topic2", (data) -> {
-                System.out.println(data);
-            });
-        }
+        eventBus.subscribe("topic2", (data) -> {
+            System.out.println(data);
+        });
 
         System.out.println();
 

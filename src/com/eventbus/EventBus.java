@@ -40,12 +40,12 @@ public class EventBus extends Thread {
             public void run() {
                 subscribers.forEach((subscriber)->{
                     if(subscriber.hasTopic(topic)) {
-                        /*
+                        // минимизировав блокировки и thread-safe
                         synchronized(subscriber) {
                             subscriber.event("(" + Thread.currentThread().getName() + ") " + msg);
                         }
-                        */
-                        subscriber.event("(" + Thread.currentThread().getName() + ") " + msg);
+                        // произвольно
+                        // subscriber.event("(" + Thread.currentThread().getName() + ") " + msg);
                     }
                 });
             }

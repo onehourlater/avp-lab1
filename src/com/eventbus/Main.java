@@ -1,10 +1,5 @@
 package com.eventbus;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.concurrent.Flow;
-
 public class Main{
     public static void main(String[] args) {
 
@@ -12,11 +7,11 @@ public class Main{
 
         EventBus eventBus = new EventBus();
 
-        eventBus.subscribe("topic1", (data) -> {
+        eventBus.subscribe(new String[]{"topic1"}, (data) -> {
             System.out.println(data);
         });
 
-        eventBus.subscribe("topic2", (data) -> {
+        eventBus.subscribe(new String[]{"topic1", "topic2"}, (data) -> {
             System.out.println(data);
         });
 

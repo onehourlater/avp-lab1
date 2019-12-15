@@ -19,13 +19,16 @@ public class EventBus extends Thread {
 
     }
 
-    public void subscribe(String topic, Consumer<String> callback){
+    public void subscribe(String[] topics, Consumer<String> callback){
 
         Subscriber subscriber = new Subscriber();
 
-        subscriber.topics.add(topic);
-
-        System.out.println(subscriber.uuid + " have been successfully subscribed to " + topic);
+        for (String topic : topics) {
+            if (!subscriber.hasTopic(topic)) {
+                subscriber.topics.add(topic);
+                System.out.println(subscriber.uuid + " have been successfully subscribed to " + topic);
+            }
+        }
 
         subscriber.callback = callback;
 
